@@ -21,3 +21,14 @@ Open <http://localhost:8000>.
 
 - OpenStreetMap tiles and Nominatim geocoding
 - Open-Meteo forecast API (`cloud_cover`)
+
+
+## Deploy
+
+This is a static site (no build step). For Vercel deployment conflicts/issues, use:
+
+- **Framework preset:** Other
+- **Build command:** *(leave empty)*
+- **Output directory:** *(leave empty / root)*
+
+The included `vercel.json` forces `/` to serve `index.html` and applies safe cache headers.
