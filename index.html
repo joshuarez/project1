@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>England Cloud Coverage Viewer</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>England Cloud Coverage Viewer</h1>
+      <p>
+        Live satellite cloud layer (updated every minute) + hourly cloud forecasts for any selected
+        town or city in England.
+      </p>
+    </header>
+
+    <main>
+      <section class="controls">
+        <form id="search-form">
+          <label for="town-search">Find a town/city in England</label>
+          <div class="search-row">
+            <input id="town-search" type="text" placeholder="e.g. Manchester" required />
+            <button type="submit">Search</button>
+          </div>
+        </form>
+
+        <div class="timeline">
+          <label for="frame-slider">Satellite time:</label>
+          <input id="frame-slider" type="range" min="0" max="0" value="0" />
+          <div id="frame-time">Loading satellite frames…</div>
+        </div>
+
+        <div class="status" id="status"></div>
+      </section>
+
+      <section class="map-wrap">
+        <div id="map" aria-label="Map of England with live cloud coverage"></div>
+      </section>
+
+      <section class="forecast">
+        <h2>Cloud forecast for selected location</h2>
+        <p id="selection">Click the map or search for a place to load forecast data.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Total cloud cover</th>
+                <th>Low clouds</th>
+                <th>Mid clouds</th>
+                <th>High clouds</th>
+              </tr>
+            </thead>
+            <tbody id="forecast-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
