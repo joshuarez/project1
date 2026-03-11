@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>England Cloud Explorer</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <h1>England Cloud Explorer</h1>
+        <p class="subtitle">Live cloud simulation by hour using forecast data across England.</p>
+
+        <form id="search-form" class="search-form">
+          <label for="town-search">Search town / city</label>
+          <div class="search-row">
+            <input id="town-search" type="text" placeholder="e.g. Birmingham" required />
+            <button type="submit">Go</button>
+          </div>
+        </form>
+
+        <div class="selection-card">
+          <h2>Selected location</h2>
+          <p id="selection">Loading London...</p>
+          <p id="cloud-now">Cloud cover: --%</p>
+        </div>
+
+        <div class="graphic-card">
+          <h2>24h cloud graphic</h2>
+          <svg id="hourly-chart" viewBox="0 0 320 160" aria-label="Hourly cloud cover chart"></svg>
+        </div>
+
+        <p id="status" class="status">Loading data...</p>
+      </aside>
+
+      <main class="map-panel">
+        <header class="top-controls">
+          <label for="hour-slider">Hour: <span id="hour-label">00:00</span></label>
+          <input id="hour-slider" type="range" min="0" max="23" value="0" />
+        </header>
+        <div id="map" aria-label="Cloud map for England"></div>
+      </main>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>

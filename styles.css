@@ -1,0 +1,144 @@
+:root {
+  color-scheme: dark;
+  --bg: #020504;
+  --panel: rgba(7, 20, 11, 0.78);
+  --panel-2: rgba(11, 32, 16, 0.9);
+  --line: #1d4d2b;
+  --text: #e7ffea;
+  --muted: #8bcf97;
+  --accent: #47ff73;
+  --accent-soft: #1da53b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 30% 20%, #08140c, #010302 70%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: var(--panel);
+  backdrop-filter: blur(8px);
+  border-right: 1px solid #1f3a26;
+  padding: 1.1rem;
+}
+
+h1 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.35rem;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #b8ffbf;
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0.45rem 0 1rem;
+}
+
+.search-form,
+.selection-card,
+.graphic-card {
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.search-row {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+input,
+button {
+  border-radius: 8px;
+  border: 1px solid #2d6a3c;
+  background: #08150d;
+  color: var(--text);
+  padding: 0.55rem 0.65rem;
+}
+
+input[type='text'] {
+  width: 100%;
+}
+
+button {
+  background: linear-gradient(135deg, #168330, #23bf4c);
+  color: #001106;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.status.bad {
+  color: #ff9494;
+}
+
+#hourly-chart {
+  width: 100%;
+  height: 180px;
+  display: block;
+  background: linear-gradient(180deg, rgba(14, 40, 19, 0.8), rgba(4, 15, 7, 0.8));
+  border-radius: 8px;
+  border: 1px solid #1d4628;
+}
+
+.map-panel {
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.top-controls {
+  background: rgba(5, 19, 8, 0.92);
+  border-bottom: 1px solid #1f4529;
+  padding: 0.7rem 1rem;
+  color: var(--accent);
+}
+
+#hour-slider {
+  width: 100%;
+  margin-top: 0.4rem;
+  accent-color: var(--accent);
+}
+
+#map {
+  width: 100%;
+  height: calc(100vh - 62px);
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #1f3a26;
+  }
+
+  #map {
+    height: 70vh;
+  }
+}
